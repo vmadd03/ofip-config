@@ -1,0 +1,23 @@
+logging:
+  level:
+    root: info
+    org:
+      hibernate:
+        SQL: DEBUG
+        type: DEBUG
+  pattern:
+    console: "%d{dd-MM-yyyy HH:mm:ss.SSS} %magenta([%thread]) %highlight(%-5level) %logger.%M - %msg%n"
+
+spring:
+  profiles:
+    active: dev
+  
+server:
+  servlet:
+    context-path: /ofip
+    
+management:
+ endpoints:
+  web:
+   exposure:
+    include: "*"  
