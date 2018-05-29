@@ -10,7 +10,7 @@ logging:
 
 spring:
   profiles:
-    active: local
+    active: dev
   jpa:
     hibernate:
       ddl-auto: none
