@@ -1,0 +1,13 @@
+api:
+ endpoints:
+   createOrder:
+     path: /abs/sb/v1/OFIP/orderService/createOrder
+     method: post
+     location: https://api-dvint.albertsons.com
+   getOrderStatus:
+     path: /abs/sb/v1/OFIP/orderService/createOrder
+     method: post
+     location: https://api-dvint.albertsons.com
+ header:
+  x-ibm-client-id: d12c4456-9454-476f-88e4-cc80eb7d6b1c
+  x-ibm-client-secret: oS1jF6xR4xH4oD0wS5pM4bJ8xL3eY2rQ8uM7vT3aC2uW7lV7qG

@@ -1,23 +1,41 @@
 logging:
   level:
-    root: info
+    root: INFO
     org:
       hibernate:
         SQL: DEBUG
         type: DEBUG
   pattern:
-    console: "%d{dd-MM-yyyy HH:mm:ss.SSS} %magenta([%thread]) %highlight(%-5level) %logger.%M - %msg%n"
+    console: "%d{dd-MM-yyyy HH:mm:ss.SSS} %magenta([%thread]) %highlight(%-5level) %logger.%M - %msg%n" 
 
 spring:
   profiles:
-    active: dev
-  
+    active: local
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show_sql: true
+    properties:
+     hibernate:
+      session_factory:
+       interceptor: com.safeway.ofip.commons.repository.CustomEntityInterceptor
+        
+  thymeleaf:
+    cache: false
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+       
 server:
   servlet:
     context-path: /ofip
-    
+
 management:
  endpoints:
   web:
    exposure:
-    include: "*"  
+    include: "*"       
+    
+security:
+  basic:
+    enabled:  false
