@@ -1,0 +1,45 @@
+server:
+  port: 9006
+    
+#API connect REST END POINTS
+api:
+ endpoints:
+   createOrder:
+     path: /abs/sb/v1/OFIP/orderService/createOrder
+     method: post
+     location: https://api-dvint.albertsons.com
+   getOrderStatus:
+     path: /abs/sb/v1/OFIP/orderService/createOrder
+     method: post
+     location: https://api-dvint.albertsons.com
+ header:
+  x-ibm-client-id: d12c4456-9454-476f-88e4-cc80eb7d6b1c
+  x-ibm-client-secret: oS1jF6xR4xH4oD0wS5pM4bJ8xL3eY2rQ8uM7vT3aC2uW7lV7qG
+
+# JDBC Url to use H2 DB File for persisting
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/orderDB?useLegacyDatetimeCode=false&serverTimezone=UTC&useTimezone=true
+    username: root
+    password: root
+    driverClassName: com.mysql.jdbc.Driver
+    initialization-mode: always
+    continue-on-error: false     
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:       
+        dialect: org.hibernate.dialect.MySQL5Dialect
+        jdbc: 
+         time_zone: UTC 
+      javax:
+        persistance:
+          schema-generation:
+            create-source: metadata
+    show-sql: true
+  thymeleaf:
+    cache: false
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
