@@ -1,2 +1,1 @@
-# ofip-config
-configurations for order fulfillment integration platform
+# app-config
